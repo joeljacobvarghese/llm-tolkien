@@ -8,7 +8,18 @@ from datasets import load_dataset
 from peft import LoraConfig, PeftModel, PeftConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModeling
 
+
+
+import sys
+sys.path.append("/content/llm-tolkien/llm")
+
 import config
+from training_utils import prepare_model, print_trainable_parameters, compute_perplexity
+
+
+import config
+
+import training_utils
 from training_utils import prepare_model, print_trainable_parameters, compute_perplexity
 
 
