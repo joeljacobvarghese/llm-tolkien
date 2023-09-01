@@ -3,16 +3,16 @@ from pathlib import Path
 
 REPO_DIR = Path(os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Text extraction
-url = 'https://gosafir.com/mag/wp-content/uploads/2019/12/Tolkien-J.-The-lord-of-the-rings-HarperCollins-ebooks-2010.pdf'
-header_height = 60  # Main text distance from the top of the page: to remove header
-footer_height = 540 # Remove footer
-start_page = 45
-end_page = 1055
+# # Text extraction
+# url = 'https://gosafir.com/mag/wp-content/uploads/2019/12/Tolkien-J.-The-lord-of-the-rings-HarperCollins-ebooks-2010.pdf'
+# header_height = 60  # Main text distance from the top of the page: to remove header
+# footer_height = 540 # Remove footer
+# start_page = 45
+# end_page = 1055
 extraction_path = REPO_DIR / "llm/data/extracted_text.jsonl"
 
 # Text processing
-min_length = 100
+min_length = 0
 
 # HF repo
 hf_repo = "SniiKz/Test"
@@ -29,13 +29,13 @@ lora_r = 16 # attention heads
 lora_alpha = 32 # alpha scaling
 lora_dropout = 0.05
 lora_bias = "none"
-lora_task_type = "CAUSAL_LM" # set this for CLM or Seq2Seq
+lora_task_type = "SEQ_2_SEQ_LM" # set this for CLM or Seq2Seq
 
 ## Trainer config
-per_device_train_batch_size = 1 
+per_device_train_batch_size = 1     
 gradient_accumulation_steps = 1
 warmup_steps = 100 
-num_train_epochs=3
+num_train_epochs=10
 weight_decay=0.1
 learning_rate = 2e-4 
 fp16 = True
@@ -50,5 +50,5 @@ mlm =False
 
 ## Generate
 max_new_tokens = 50
-temperature = 0.5
+temperature = 0.1
 do_sample = False
