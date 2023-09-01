@@ -29,7 +29,7 @@ lora_r = 16 # attention heads
 lora_alpha = 32 # alpha scaling
 lora_dropout = 0.05
 lora_bias = "none"
-lora_task_type = "SEQ_2_SEQ_LM" # set this for CLM or Seq2Seq
+lora_task_type = "CAUSAL_LM" # set this for CLM or Seq2Seq
 
 ## Trainer config
 per_device_train_batch_size = 1     
